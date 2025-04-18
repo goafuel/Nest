@@ -1,14 +1,20 @@
+
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dove Nest Farmhouse & Party Hall</title>
+  <title>Dove Nest - Farmhouse & Party Hall</title>
+  <meta name="description" content="Dove Nest Farmhouse & Party Hall in Santa Cruz, Goa. Perfect for parties, stays, and celebrations!" />
+  <meta name="keywords" content="Farmhouse, Party Hall, Goa, Santa Cruz, Event Venue, Bookings, Swimming Pool, Dance Floor" />
+  <meta name="author" content="Fuelerz" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="favicon.png">
-  <meta property="og:title" content="Dove Nest Farmhouse & Party Hall" />  <meta property="og:description" content="A short description of your page.">
-  <meta property="og:image" content="favicon.png" />  <meta property="og:url" content="https://example.com/your-page">
+  <meta property="og:title" content="Dove Nest - Farmhouse & Party Hall" />
   <meta property="og:description" content="Plan your perfect event or relaxing stay surrounded by nature in Santa Cruz." />
-  <meta property="og:type" content="Bookings" />  <style>
+  <meta property="og:image" content="favicon.png" />
+  <meta property="og:url" content="https://goafuel.github.io/Nest/">
+  <meta property="og:type" content="online booking" />
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -69,6 +75,9 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+    .media-item img {
+      loading: lazy;
     }
     .caption-box {
       position: absolute;
@@ -161,7 +170,8 @@
       max-height: 90%;
       border-radius: 10px;
     }
-  </style></head>
+  </style>
+</head>
 <body>
   <header>
     <h1>Dove Nest Farmhouse & Party Hall</h1>
@@ -169,8 +179,7 @@
   <div class="description-box">
     Located in Bandh, Santa Cruz, Dove Nest Farmhouse offers the perfect spot for parties, stays, and relaxing moments. Enjoy a large swimming pool with a kid’s section, a party hall, and an open-air dance floor—all surrounded by lush greenery.<br><br>
     Stay overnight in our cozy house with a pool view and unwind in nature’s calm, just minutes from Goa’s vibrant life.
-  </div>
-  <section class="gallery">
+  </div><section class="gallery">
     <div class="media-item" onclick="openLightbox('party.jpg', 'img')">
       <img src="party.jpg" alt="Party Event">
       <div class="caption-box">Making birthday memories that last forever!</div>
@@ -199,20 +208,20 @@
     <h2 style="text-align: center; margin-bottom: 1rem; color: #33691e;">Book Your Party With Us!</h2>
     <form id="bookingForm">
       <label for="name">Your Name</label>
-      <input type="text" id="name" placeholder="Ben Dover" required><label for="phone">Your Phone Number</label>
-  <input type="tel" id="phone" placeholder="9876543210" required>
+      <input type="text" id="name" placeholder="Ben Dover" required aria-label="Your Name"><label for="phone">Your Phone Number</label>
+  <input type="tel" id="phone" placeholder="9876543210" required aria-label="Your Phone Number">
 
   <label for="email">Your Email</label>
-  <input type="email" id="email" placeholder="you@example.com" required>
+  <input type="email" id="email" placeholder="you@example.com" required aria-label="Your Email">
 
   <label for="eventType">Type of Event</label>
-  <input type="text" id="eventType" placeholder="Birthday, Wedding, Reunion..." required>
+  <input type="text" id="eventType" placeholder="Birthday, Wedding, Reunion..." required aria-label="Event Type">
 
   <label for="date">Choose Date</label>
-  <input type="date" id="date" required>
+  <input type="date" id="date" required aria-label="Date">
 
   <label for="message">Any fun details we should know?</label>
-  <textarea id="message" rows="4" placeholder="Mention guest count, themes, food etc."></textarea>
+  <textarea id="message" rows="4" placeholder="Mention guest count, themes, food etc." aria-label="Additional Details"></textarea>
 
   <button type="submit">Send Booking via WhatsApp</button>
 </form>
@@ -226,11 +235,17 @@
       const email = document.getElementById('email').value;
       const eventType = document.getElementById('eventType').value;
       const date = document.getElementById('date').value;
-      const message = document.getElementById('message').value;
-      const fullMessage = `Booking Request for Dove Nest %0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AEvent Type: ${eventType}%0ADate: ${date}%0ADetails: ${message}`;
-      const whatsappURL = `https://wa.me/919822182917?text=${fullMessage}`;
-      window.open(whatsappURL, '_blank');
-    });function openLightbox(src, type) {
+      const message = document.getElementById('message').value;if (!name || !phone || !email || !eventType || !date) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  const fullMessage = `Booking Request for Dove Nest %0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AEvent Type: ${eventType}%0ADate: ${date}%0ADetails: ${message}`;
+  const whatsappURL = `https://wa.me/919822182917?text=${fullMessage}`;
+  window.open(whatsappURL, '_blank');
+});
+
+function openLightbox(src, type) {
   const lb = document.getElementById('lightbox');
   const img = document.getElementById('lightbox-img');
   const video = document.getElementById('lightbox-video');
