@@ -246,42 +246,5 @@ button:hover {
       lb.style.display = 'flex';
     }
   </script>
-<audio id="bgMusic" loop>
-  <source src="your-music.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-
-<button id="musicToggle" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #66bb6a;
-  border: none;
-  padding: 10px 14px;
-  color: white;
-  font-size: 1rem;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
-">Play Music</button>
-
-<script>
-  const music = document.getElementById('bgMusic');
-  const toggleBtn = document.getElementById('musicToggle');
-  let isPlaying = false;
-
-  toggleBtn.addEventListener('click', () => {
-    if (!isPlaying) {
-      music.volume = 0.3;
-      music.play();
-      toggleBtn.textContent = 'Pause Music';
-    } else {
-      music.pause();
-      toggleBtn.textContent = 'Play Music';
-    }
-    isPlaying = !isPlaying;
-  });
-</script>
 </body>
 </html>
