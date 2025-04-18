@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dove Nest - Farmhouse & Party Hall</title>
@@ -56,14 +57,16 @@ h1 {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   padding: 3rem;
 }
 
 .media-item {
-  position: center;
+  width: 300px;
+  position: relative;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
@@ -187,7 +190,8 @@ button:hover {
 }
 
   </style>
-</head><body>
+</head>
+<body>
   <header>
     <h1>Dove Nest</h1>
     <img src="favicon.png" alt="Dove Logo" class="logo">
@@ -257,6 +261,8 @@ button:hover {
       const lb = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
       const video = document.getElementById('lightbox-video');
+
+      lb.style.display = 'flex';
       if (type === 'img') {
         img.src = src;
         img.style.display = 'block';
@@ -266,8 +272,6 @@ button:hover {
         video.style.display = 'block';
         img.style.display = 'none';
       }
-      lb.style.display = 'flex';
     }
-  </script>
-	</body>
+  </script></body>
 </html>
